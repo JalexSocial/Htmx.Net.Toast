@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
 
 namespace Htmx.Net.Toast.Middlewares;
 
@@ -47,7 +48,7 @@ internal class NotyfMiddleware
 				var accessControlExposeHeaders = $"{GetControlExposeHeaders(httpContext.Response.Headers)}";
 				httpContext.Response.Headers.Add(AccessControlExposeHeadersKey, accessControlExposeHeaders);
 
-				var notificationsJson = messages.Notifications.ToJson();
+				var notificationsJson = new { notyfpublish = messages.Notifications }.ToJson();
 				httpContext.Response.Headers.Add(Constants.NotyfResponseHeaderKey,
 					notificationsJson);
 			}

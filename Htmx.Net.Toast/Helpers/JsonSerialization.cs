@@ -8,7 +8,8 @@ public static class JsonSerialization
 	public static JsonSerializerOptions JsonSerializerOptions => new JsonSerializerOptions
 	{
 		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+		Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
 	};
 
 	public static string ToJson(this object obj)

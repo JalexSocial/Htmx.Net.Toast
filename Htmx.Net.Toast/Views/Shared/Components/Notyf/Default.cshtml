@@ -14,6 +14,17 @@
 		}
 	}    
 	const notyf = new Notyf(@Html.Raw(Model.Configuration));
+
+	document.body.addEventListener("notyfpublish", function (evt) {
+		var notifications = evt.detail.value;
+		var delay = 0;
+		if (Array.isArray(notifications)) {
+			notifications.forEach(notification => {
+				setTimeout(() => notyf.open(notification), delay);
+				delay += 500;
+			});
+		}
+	});
 </script>
 @{
 	@if (Model.Notifications != null)
