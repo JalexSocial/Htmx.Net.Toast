@@ -1,15 +1,15 @@
-﻿using Htmx.Net.Toast.Abstractions;
+﻿using System.Text.Json;
+using Htmx.Net.Toast.Abstractions;
 using Htmx.Net.Toast.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Newtonsoft.Json;
 
 namespace Htmx.Net.Toast.Services;
 
 public class TempDataService : ITempDataService
 {
 	private readonly IHttpContextAccessor _httpContextAccessor;
-	private readonly JsonSerializerSettings _serializerSettings;
+	private readonly JsonSerializerOptions _serializerOptions;
 	private readonly ITempDataDictionaryFactory _tempDataDictionaryFactory;
 
 	public TempDataService(ITempDataDictionaryFactory tempDataDictionaryFactory,
@@ -17,7 +17,7 @@ public class TempDataService : ITempDataService
 	{
 		_tempDataDictionaryFactory = tempDataDictionaryFactory;
 		_httpContextAccessor = httpContextAccessor;
-		_serializerSettings = GetSerializerSettings();
+		_serializerOptions = GetSerializerSettings();
 	}
 
 	/// <summary>
@@ -29,14 +29,14 @@ public class TempDataService : ITempDataService
 	public T Get<T>(string key) where T : class
 	{
 		if (TempData.ContainsKey(key) && TempData[key] is string json)
-			return JsonConvert.DeserializeObject<T>(json);
+			return JsonSerializer.Deserialize<T>(json, _serializerOptions);
 		return null;
 	}
 
 	public T Peek<T>(string key) where T : class
 	{
 		if (TempData.ContainsKey(key) && TempData.Peek(key) is string json)
-			return JsonConvert.DeserializeObject<T>(json);
+			return JsonSerializer.Deserialize<T>(json, _serializerOptions);
 		return null;
 	}
 
@@ -50,11 +50,11 @@ public class TempDataService : ITempDataService
 		return TempData.ContainsKey(key) && TempData.Remove(key);
 	}
 
-	private JsonSerializerSettings GetSerializerSettings()
+	private JsonSerializerOptions GetSerializerSettings()
 	{
-		return new JsonSerializerSettings
+		return new JsonSerializerOptions
 		{
-			TypeNameHandling = TypeNameHandling.Auto
+			IncludeFields = true
 		};
 	}
 }

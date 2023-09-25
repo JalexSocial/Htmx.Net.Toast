@@ -7,7 +7,7 @@ namespace Htmx.Net.Toast.Containers;
 public class TempDataToastNotificationContainer<TMessage> : IToastNotificationContainer<TMessage>
 	where TMessage : class
 {
-	private const string Key = "AspNetCoreHero.ToastNotification";
+	private const string Key = "Htmx.Net.Toast";
 	private readonly ITempDataService _tempDataWrapper;
 
 	public TempDataToastNotificationContainer(ITempDataService tempDataWrapper)

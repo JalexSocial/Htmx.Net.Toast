@@ -43,6 +43,7 @@ public class Startup
 		app.UseRouting();
 
 		app.UseAuthorization();
+		app.UseNotyf();
 
 		app.UseEndpoints(endpoints =>
 		{

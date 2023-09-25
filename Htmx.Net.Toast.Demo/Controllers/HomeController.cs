@@ -29,6 +29,13 @@ public class HomeController : Controller
 		return View();
 	}
 
+	public IActionResult Notifications()
+	{
+		_notyf.Success("Success Notification invoked via htmx");
+
+		return Content("This content was generated via an htmx call.");
+	}
+
 	public IActionResult Privacy()
 	{
 		return View();

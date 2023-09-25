@@ -1,18 +1,18 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Htmx.Net.Toast.Helpers;
 
 public static class JsonSerialization
 {
-	public static JsonSerializerSettings JsonSerializerSettings => new JsonSerializerSettings
+	public static JsonSerializerOptions JsonSerializerOptions => new JsonSerializerOptions
 	{
-		ContractResolver = new CamelCasePropertyNamesContractResolver(),
-		NullValueHandling = NullValueHandling.Ignore
+		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+		DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
 	};
 
 	public static string ToJson(this object obj)
 	{
-		return JsonConvert.SerializeObject(obj, JsonSerializerSettings);
+		return JsonSerializer.Serialize(obj, JsonSerializerOptions);
 	}
 }

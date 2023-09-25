@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="logo-transparent.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
