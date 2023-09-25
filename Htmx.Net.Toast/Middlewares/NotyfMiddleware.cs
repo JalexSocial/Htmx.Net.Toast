@@ -49,7 +49,7 @@ internal class NotyfMiddleware
 
 				var notificationsJson = messages.Notifications.ToJson();
 				httpContext.Response.Headers.Add(Constants.NotyfResponseHeaderKey,
-					WebUtility.UrlEncode(notificationsJson));
+					notificationsJson);
 			}
 		}
 
