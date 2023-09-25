@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Mukesh Murugan, Michael Tanczos</Authors>
+    <Company>aspnetcorehero, Jalex</Company>
+    <Product>Htmx.Net.Toast</Product>
+    <Description>Elegant Toast Notifications for ASP.NET Core Applications that utilize HTMX. Compatible with .NET 7+.</Description>
+    <Copyright>2023</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <Version>1.1.0</Version>
+    <PackageIcon>logo-transparent.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/aspnetcorehero/ToastNotification</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aspnetcorehero/ToastNotification</RepositoryUrl>
+	<TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo-transparent.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+
+
+</Project>
