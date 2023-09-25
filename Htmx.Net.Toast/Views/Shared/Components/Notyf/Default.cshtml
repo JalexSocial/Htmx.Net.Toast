@@ -21,7 +21,7 @@
 		if (Array.isArray(notifications)) {
 			notifications.forEach(notification => {
 				setTimeout(() => notyf.open(notification), delay);
-				delay += 500;
+				delay += 250;
 			});
 		}
 	});

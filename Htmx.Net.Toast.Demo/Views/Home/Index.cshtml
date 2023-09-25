@@ -4,7 +4,9 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-	<button hx-post="/home/notifications" hx-swap="outerHTML">
-		Click Me to Trigger Notification via htmx
-	</button>
+    <button hx-post="/home/notifications" hx-swap="innerHTML" hx-target="#notification-target">
+        Click Me to Trigger Notification via htmx
+    </button>
+    
+    <div id="notification-target"></div>
 </div>

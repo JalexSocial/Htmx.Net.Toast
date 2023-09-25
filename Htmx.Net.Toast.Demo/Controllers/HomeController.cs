@@ -1,4 +1,5 @@
-﻿using Htmx.Net.Toast.Abstractions;
+﻿using System;
+using Htmx.Net.Toast.Abstractions;
 using Htmx.Net.Toast.Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -32,8 +33,14 @@ public class HomeController : Controller
 	public IActionResult Notifications()
 	{
 		_notyf.Success("Success Notification invoked via htmx");
+		_notyf.Error("Some Error Message 1");
+		_notyf.Error("Some Error Message 2");
+		_notyf.Error("Some Error Message 3");
 
-		return Content("This content was generated via an htmx call.");
+		Random rand = new Random(System.Environment.TickCount);
+		var num = rand.NextInt64(1, 5000);
+
+		return Content($"{num} - This content was generated via an htmx call.");
 	}
 
 	public IActionResult Privacy()
