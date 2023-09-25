@@ -54,7 +54,8 @@ public class TempDataService : ITempDataService
 	{
 		return new JsonSerializerOptions
 		{
-			IncludeFields = true
+			IncludeFields = true,
+			PropertyNameCaseInsensitive = true
 		};
 	}
 }
