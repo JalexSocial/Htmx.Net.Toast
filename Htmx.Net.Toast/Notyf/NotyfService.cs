@@ -15,19 +15,9 @@ public class NotyfService : INotyfService
 		MessageContainer = messageContainerFactory.Create<NotyfNotification>();
 	}
 
-	public void Custom(string type, string message, int? duration = null)
+	public void Custom(ToastNotificationType type, string message, int? duration = null)
 	{
 		var toast = new NotyfNotification(type, message, duration);
-		MessageContainer.Add(toast);
-	}
-
-	public void Custom(string message, int? duration = null, string backgroundColor = "black", string iconClassName = "home")
-	{
-		var toast = new NotyfNotification(ToastNotificationType.Custom, message, duration)
-		{
-			Icon = iconClassName,
-			BackgroundColor = backgroundColor
-		};
 		MessageContainer.Add(toast);
 	}
 

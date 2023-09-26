@@ -14,7 +14,7 @@ public class NotyfNotification : Notification
 	{
 	}
 
-	public NotyfNotification(string type, string message, int? duration) : base(ToastNotificationType.Custom,
+	public NotyfNotification(string type, string message, int? duration) : base(ToastNotificationType.Custom("custom"),
 		message, duration)
 	{
 		CustomTypeName = type;

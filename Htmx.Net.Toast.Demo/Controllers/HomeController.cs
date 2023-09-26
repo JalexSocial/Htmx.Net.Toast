@@ -4,6 +4,7 @@ using Htmx.Net.Toast.Demo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using Htmx.Net.Toast.Enums;
 
 namespace Htmx.Net.Toast.Demo.Controllers;
 
@@ -25,8 +26,8 @@ public class HomeController : Controller
 		_notyf.Warning("Some Error Message");
 		_notyf.Information("Information Notification - closes in 4 seconds.", 4000);
 		//_notyf.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
-		_notyf.Custom("Custom Notification - closes in 5 seconds.", 5000, "whitesmoke", "fa fa-gear");
-		_notyf.Custom("Custom Notification - closes in 10 seconds.", 10000, "#B600FF", "fa fa-home");
+		_notyf.Custom(ToastNotificationType.Custom("custom"), "Custom Notification - closes in 5 seconds.", 5000);
+		_notyf.Custom(ToastNotificationType.Custom("custom"), "Custom Notification - closes in 10 seconds.", 10000);
 		return View();
 	}
 

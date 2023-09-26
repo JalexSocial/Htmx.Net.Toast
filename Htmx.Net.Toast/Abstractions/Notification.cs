@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using Htmx.Net.Toast.Enums;
+using Htmx.Net.Toast.Helpers;
 
 namespace Htmx.Net.Toast.Abstractions;
 
@@ -17,6 +18,7 @@ public class Notification
 	[JsonPropertyName("backgroundColor")]
 	public string? BackgroundColor { get; set; }
 	[JsonPropertyName("type")]
+	[JsonConverter(typeof(ToastNotificationTypeConverter))]
 	public ToastNotificationType Type { get; set; }
 	[JsonPropertyName("duration")]
 	public int? Duration { get; set; }
