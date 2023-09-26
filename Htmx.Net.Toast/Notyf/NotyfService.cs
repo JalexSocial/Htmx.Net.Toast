@@ -8,55 +8,55 @@ namespace Htmx.Net.Toast.Notyf;
 
 public class NotyfService : INotyfService
 {
-	protected IToastNotificationContainer<NotyfNotification> MessageContainer;
+	private readonly IToastNotificationContainer<NotyfNotification> _messageContainer;
 
 	public NotyfService(IMessageContainerFactory messageContainerFactory)
 	{
-		MessageContainer = messageContainerFactory.Create<NotyfNotification>();
+		_messageContainer = messageContainerFactory.Create<NotyfNotification>();
 	}
 
-	public void Custom(ToastNotificationType type, string message, int? duration = null)
+	public IEnumerable<NotyfNotification> GetNotifications()
 	{
-		var toast = new NotyfNotification(type, message, duration);
-		MessageContainer.Add(toast);
+		return _messageContainer.GetAll();
+	}
+
+	public IEnumerable<NotyfNotification> ReadAllNotifications()
+	{
+		return _messageContainer.ReadAll();
+	}
+
+	public void RemoveAll()
+	{
+		_messageContainer.RemoveAll();
+	}
+
+	public void Custom(ToastNotificationType type, string message, int? duration = null, object? icon = null)
+	{
+		var toast = new NotyfNotification(type, message, duration, icon);
+		_messageContainer.Add(toast);
 	}
 
 	public void Error(string message, int? duration = null)
 	{
 		var toast = new NotyfNotification(ToastNotificationType.Error, message, duration);
-		MessageContainer.Add(toast);
-	}
-
-	public IEnumerable<NotyfNotification> GetNotifications()
-	{
-		return MessageContainer.GetAll();
+		_messageContainer.Add(toast);
 	}
 
 	public void Information(string message, int? duration = null)
 	{
 		var toast = new NotyfNotification(ToastNotificationType.Information, message, duration);
-		MessageContainer.Add(toast);
-	}
-
-	public IEnumerable<NotyfNotification> ReadAllNotifications()
-	{
-		return MessageContainer.ReadAll();
-	}
-
-	public void RemoveAll()
-	{
-		MessageContainer.RemoveAll();
+		_messageContainer.Add(toast);
 	}
 
 	public void Success(string message, int? duration = null)
 	{
 		var toast = new NotyfNotification(ToastNotificationType.Success, message, duration);
-		MessageContainer.Add(toast);
+		_messageContainer.Add(toast);
 	}
 
 	public void Warning(string message, int? duration = null)
 	{
 		var toast = new NotyfNotification(ToastNotificationType.Warning, message, duration);
-		MessageContainer.Add(toast);
+		_messageContainer.Add(toast);
 	}
 }

@@ -16,10 +16,10 @@ public class NotyfNotificationOptions
 	[JsonPropertyName("icon")]
 	public object Icon
 	{
-		get { return _icon;  }
+		get => _icon;
 		set
 		{
-			if (value is NotyfIcon || value is string || value is bool)
+			if (value is NotyfIcon or string or bool)
 				_icon = value;
 			else
 				throw new Exception("Icon must be either NotyfIcon, string, or bool");

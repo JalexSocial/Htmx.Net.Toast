@@ -10,8 +10,7 @@ public interface INotyfService
 	void Error(string message, int? duration = null);
 	void Information(string message, int? duration = null);
 	void Warning(string message, int? duration = null);
-
-	void Custom(ToastNotificationType type, string message, int? duration = null);
+	void Custom(ToastNotificationType type, string message, int? duration = null, object? icon = null);
 
 	IEnumerable<NotyfNotification> GetNotifications();
 	IEnumerable<NotyfNotification> ReadAllNotifications();

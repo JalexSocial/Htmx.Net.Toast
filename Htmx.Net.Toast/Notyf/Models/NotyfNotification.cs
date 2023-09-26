@@ -9,17 +9,11 @@ public class NotyfNotification : Notification
 	{
 	}
 
-	public NotyfNotification(ToastNotificationType type, string message, int? duration) : base(type,
+	public NotyfNotification(ToastNotificationType type, string message, int? duration, object? icon = null) : base(type,
 		message, duration)
 	{
-	}
-
-	public NotyfNotification(string type, string message, int? duration) : base(ToastNotificationType.Custom("custom"),
-		message, duration)
-	{
-		CustomTypeName = type;
+		Icon = icon;
 	}
 
 	public object? Icon { get; set; }
-	public string? CustomTypeName { get; set; } = string.Empty;
 }
