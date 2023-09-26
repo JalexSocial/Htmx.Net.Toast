@@ -30,12 +30,16 @@ public static class ServiceCollectionExtensions
 		#endregion
 	}
 
-	public static void AddNotyf(this IServiceCollection services, Action<NotyfConfig> configure)
+	public static void AddNotyf(this IServiceCollection services, Action<NotyfConfigOptions> configure)
 	{
-		var configurationValue = new NotyfConfig();
+		var configurationValue = new NotyfConfigOptions();
 		configure(configurationValue);
-		var options = new NotyfEntity(configurationValue.DurationInSeconds, configurationValue.Position,
-			configurationValue.IsDismissable);
+		var options = new NotyfConfig(configurationValue.Position, configurationValue.CustomTypes)
+		{
+			Duration = configurationValue.Duration ?? 5000,
+			Dismissible = configurationValue.IsDismissable ?? false,
+			Ripple = configurationValue.HasRippleEffect ?? true
+		};
 		if (services == null) throw new ArgumentNullException(nameof(services));
 
 		services.AddFrameworkServices();

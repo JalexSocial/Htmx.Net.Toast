@@ -5,6 +5,6 @@ namespace Htmx.Net.Toast.Notyf;
 
 public class NotyfViewModel
 {
-	public string Configuration { get; set; }
-	public IEnumerable<NotyfNotification> Notifications { get; set; }
+	public string Configuration { get; set; } = "{}";
+	public IEnumerable<NotyfNotification> Notifications { get; set; } = new List<NotyfNotification>();
 }

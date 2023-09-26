@@ -5,14 +5,21 @@ namespace Htmx.Net.Toast.Notyf.Models;
 
 public class NotyfNotification : Notification
 {
-	public NotyfNotification() : base (ToastNotificationType.Success, string.Empty, 1)
+	public NotyfNotification() : base (ToastNotificationType.Success, string.Empty, 2500)
 	{
 	}
 
-	public NotyfNotification(ToastNotificationType type, string message, int? durationInSeconds) : base(type,
-		message, durationInSeconds)
+	public NotyfNotification(ToastNotificationType type, string message, int? duration) : base(type,
+		message, duration)
 	{
 	}
 
-	public string Icon { get; set; }
+	public NotyfNotification(string type, string message, int? duration) : base(ToastNotificationType.Custom,
+		message, duration)
+	{
+		CustomTypeName = type;
+	}
+
+	public object? Icon { get; set; }
+	public string? CustomTypeName { get; set; } = string.Empty;
 }

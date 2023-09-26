@@ -11,13 +11,13 @@ public class NotyfViewComponent : ViewComponent
 {
 	private readonly INotyfService _service;
 
-	public NotyfViewComponent(INotyfService service, NotyfEntity options)
+	public NotyfViewComponent(INotyfService service, NotyfConfig options)
 	{
 		_service = service;
 		_options = options;
 	}
 
-	public NotyfEntity _options { get; }
+	public NotyfConfig _options { get; }
 
 	public IViewComponentResult Invoke()
 	{

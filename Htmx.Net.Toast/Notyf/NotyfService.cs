@@ -15,19 +15,26 @@ public class NotyfService : INotyfService
 		MessageContainer = messageContainerFactory.Create<NotyfNotification>();
 	}
 
-	public void Custom(string message, int? durationInSeconds = null, string backgroundColor = "black",
-		string iconClassName = "home")
+	public void Custom(string type, string message, int? duration = null)
 	{
-		var toastMessage = new NotyfNotification(ToastNotificationType.Custom, message, durationInSeconds);
-		toastMessage.Icon = iconClassName;
-		toastMessage.BackgroundColor = backgroundColor;
-		MessageContainer.Add(toastMessage);
+		var toast = new NotyfNotification(type, message, duration);
+		MessageContainer.Add(toast);
 	}
 
-	public void Error(string message, int? durationInSeconds = null)
+	public void Custom(string message, int? duration = null, string backgroundColor = "black", string iconClassName = "home")
 	{
-		var toastMessage = new NotyfNotification(ToastNotificationType.Error, message, durationInSeconds);
-		MessageContainer.Add(toastMessage);
+		var toast = new NotyfNotification(ToastNotificationType.Custom, message, duration)
+		{
+			Icon = iconClassName,
+			BackgroundColor = backgroundColor
+		};
+		MessageContainer.Add(toast);
+	}
+
+	public void Error(string message, int? duration = null)
+	{
+		var toast = new NotyfNotification(ToastNotificationType.Error, message, duration);
+		MessageContainer.Add(toast);
 	}
 
 	public IEnumerable<NotyfNotification> GetNotifications()
@@ -35,10 +42,10 @@ public class NotyfService : INotyfService
 		return MessageContainer.GetAll();
 	}
 
-	public void Information(string message, int? durationInSeconds = null)
+	public void Information(string message, int? duration = null)
 	{
-		var toastMessage = new NotyfNotification(ToastNotificationType.Information, message, durationInSeconds);
-		MessageContainer.Add(toastMessage);
+		var toast = new NotyfNotification(ToastNotificationType.Information, message, duration);
+		MessageContainer.Add(toast);
 	}
 
 	public IEnumerable<NotyfNotification> ReadAllNotifications()
@@ -51,15 +58,15 @@ public class NotyfService : INotyfService
 		MessageContainer.RemoveAll();
 	}
 
-	public void Success(string message, int? durationInSeconds = null)
+	public void Success(string message, int? duration = null)
 	{
-		var toastMessage = new NotyfNotification(ToastNotificationType.Success, message, durationInSeconds);
-		MessageContainer.Add(toastMessage);
+		var toast = new NotyfNotification(ToastNotificationType.Success, message, duration);
+		MessageContainer.Add(toast);
 	}
 
-	public void Warning(string message, int? durationInSeconds = null)
+	public void Warning(string message, int? duration = null)
 	{
-		var toastMessage = new NotyfNotification(ToastNotificationType.Warning, message, durationInSeconds);
-		MessageContainer.Add(toastMessage);
+		var toast = new NotyfNotification(ToastNotificationType.Warning, message, duration);
+		MessageContainer.Add(toast);
 	}
 }

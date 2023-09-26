@@ -1,18 +1,23 @@
-﻿using Htmx.Net.Toast.Enums;
+﻿using System.Text.Json.Serialization;
+using Htmx.Net.Toast.Enums;
 
 namespace Htmx.Net.Toast.Abstractions;
 
 public class Notification
 {
-	public Notification(ToastNotificationType type, string message, int? durationInSeconds)
+	public Notification(ToastNotificationType type, string message, int? duration)
 	{
 		Message = message;
 		Type = type;
-		Duration = durationInSeconds == null || durationInSeconds == 0 ? null : durationInSeconds * 1000;
+		Duration = duration == null || duration == 0 ? null : duration;
 	}
 
+	[JsonPropertyName("message")]
 	public string Message { get; set; }
-	public string BackgroundColor { get; set; }
+	[JsonPropertyName("backgroundColor")]
+	public string? BackgroundColor { get; set; }
+	[JsonPropertyName("type")]
 	public ToastNotificationType Type { get; set; }
+	[JsonPropertyName("duration")]
 	public int? Duration { get; set; }
 }

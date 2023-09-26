@@ -18,14 +18,14 @@ internal class NotyfMiddleware
 	private readonly ILogger<NotyfMiddleware> _logger;
 	private readonly INotyfService _toastNotification;
 
-	public NotyfMiddleware(INotyfService toastNotification, ILogger<NotyfMiddleware> logger, NotyfEntity options)
+	public NotyfMiddleware(INotyfService toastNotification, ILogger<NotyfMiddleware> logger, NotyfConfig options)
 	{
 		_toastNotification = toastNotification;
 		_logger = logger;
 		_options = options;
 	}
 
-	public NotyfEntity _options { get; }
+	public NotyfConfig _options { get; }
 
 	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
 	{
@@ -49,7 +49,7 @@ internal class NotyfMiddleware
 				httpContext.Response.Headers.Add(AccessControlExposeHeadersKey, accessControlExposeHeaders);
 
 				var notificationsJson = new { notyfpublish = messages.Notifications }.ToJson();
-				httpContext.Response.Headers.Add(Constants.NotyfResponseHeaderKey,
+				httpContext.Response.Headers.Add(HtmxHeaderKeys.ResponseTriggerAfterSettle,
 					notificationsJson);
 			}
 		}
@@ -61,7 +61,7 @@ internal class NotyfMiddleware
 	{
 		var existingHeaders = headers[AccessControlExposeHeadersKey];
 		if (string.IsNullOrEmpty(existingHeaders))
-			return Constants.NotyfResponseHeaderKey;
-		return $"{existingHeaders}, {Constants.NotyfResponseHeaderKey}";
+			return HtmxHeaderKeys.ResponseTriggerAfterSettle;
+		return $"{existingHeaders}, {HtmxHeaderKeys.ResponseTriggerAfterSettle}";
 	}
 }

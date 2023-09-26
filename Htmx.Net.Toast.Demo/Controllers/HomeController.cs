@@ -20,13 +20,13 @@ public class HomeController : Controller
 	public IActionResult Index()
 	{
 		//_notyf.Success("Success Notification");
-		//_notyf.Success("Success Notification that closes in 10 Seconds.", 10);
-		//_notyf.Error("Some Error Message");
-		//_notyf.Warning("Some Error Message");
-		//_notyf.Information("Information Notification - closes in 4 seconds.", 4);
+		_notyf.Success("Success Notification that closes in 10 Seconds.", 10000);
+		_notyf.Error("Some Error Message");
+		_notyf.Warning("Some Error Message");
+		_notyf.Information("Information Notification - closes in 4 seconds.", 4000);
 		//_notyf.Custom("Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5, "indigo", "fa fa-gear");
-		_notyf.Custom("Custom Notification - closes in 5 seconds.", 5, "whitesmoke", "fa fa-gear");
-		_notyf.Custom("Custom Notification - closes in 10 seconds.", 10, "#B600FF", "fa fa-home");
+		_notyf.Custom("Custom Notification - closes in 5 seconds.", 5000, "whitesmoke", "fa fa-gear");
+		_notyf.Custom("Custom Notification - closes in 10 seconds.", 10000, "#B600FF", "fa fa-home");
 		return View();
 	}
 
@@ -34,8 +34,8 @@ public class HomeController : Controller
 	{
 		_notyf.Success("Success Notification invoked via htmx");
 		_notyf.Error("Some Error Message 1");
-		_notyf.Error("Some Error Message 2");
-		_notyf.Error("Some Error Message 3");
+		_notyf.Information("Information Notification - closes in 4 seconds.", 45000);
+		_notyf.Warning("Some Error Message");
 
 		Random rand = new Random(System.Environment.TickCount);
 		var num = rand.NextInt64(1, 5000);

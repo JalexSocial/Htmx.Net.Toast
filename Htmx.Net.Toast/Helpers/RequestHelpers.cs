@@ -9,7 +9,7 @@ internal static class RequestHelpers
 	{
 		if (request == null) throw new ArgumentNullException(nameof(request));
 
-		if (request?.Headers.ContainsKey(Constants.RequestHeaderKey) is true) return true;
+		if (request?.Headers.ContainsKey(HtmxHeaderKeys.Request) is true) return true;
 
 		return false;
 	}

@@ -1,7 +1,11 @@
-﻿namespace Htmx.Net.Toast.Notyf.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Htmx.Net.Toast.Notyf.Models;
 
 public class Position
 {
-	public string x { get; set; }
-	public string y { get; set; }
+	[JsonPropertyName("x")]
+	public string X { get; set; } = string.Empty;
+	[JsonPropertyName("y")]
+	public string Y { get; set; } = string.Empty;
 }

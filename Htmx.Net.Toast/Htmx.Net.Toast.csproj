@@ -4,7 +4,7 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Mukesh Murugan, Michael Tanczos</Authors>
+    <Authors>Michael Tanczos, Mukesh Murugan</Authors>
     <Company>aspnetcorehero, Jalex</Company>
     <Product>Htmx.Net.Toast</Product>
     <Description>Elegant Toast Notifications for ASP.NET Core Applications that utilize HTMX. Compatible with .NET 7+.</Description>
@@ -17,6 +17,7 @@
     <PackageProjectUrl>https://github.com/aspnetcorehero/ToastNotification</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aspnetcorehero/ToastNotification</RepositoryUrl>
 	<TargetFramework>net7.0</TargetFramework>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +29,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
   
 
