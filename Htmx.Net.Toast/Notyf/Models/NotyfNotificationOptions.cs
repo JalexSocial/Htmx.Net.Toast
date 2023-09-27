@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Htmx.Net.Toast.Enums;
+using Htmx.Net.Toast.Helpers;
 
 namespace Htmx.Net.Toast.Notyf.Models;
 
@@ -8,7 +10,8 @@ public class NotyfNotificationOptions
 	private object _icon = false;
 
 	[JsonPropertyName("type")]
-	public string? NotificationType { get; set; }
+	[JsonConverter(typeof(ToastNotificationTypeConverter))]
+	public ToastNotificationType? Type { get; set; }
 	[JsonPropertyName("className")]
 	public string? ClassName { get; set; }
 	[JsonPropertyName("duration")]
@@ -26,7 +29,7 @@ public class NotyfNotificationOptions
 		}
 	} 
 	[JsonPropertyName("background")]
-	public string? Background { get; set; }
+	public string? BackgroundColor { get; set; }
 	[JsonPropertyName("message")]
 	public string? Message { get; set; }
 	[JsonPropertyName("ripple")]

@@ -37,8 +37,8 @@ public static class ServiceCollectionExtensions
 		var options = new NotyfConfig(configurationValue.Position, configurationValue.CustomTypes)
 		{
 			Duration = configurationValue.Duration ?? 5000,
-			Dismissible = configurationValue.IsDismissable ?? false,
-			Ripple = configurationValue.HasRippleEffect ?? true
+			Dismissible = configurationValue.Dismissable ?? false,
+			Ripple = configurationValue.Ripple ?? true
 		};
 		if (services == null) throw new ArgumentNullException(nameof(services));
 

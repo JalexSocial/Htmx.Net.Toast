@@ -8,7 +8,7 @@ public class NotyfConfigOptions
 {
 	public int? Duration { get; set; }
 	public NotyfPosition Position { get; set; } = NotyfPosition.BottomRight;
-	public bool? IsDismissable { get; set; } = false;
-	public bool? HasRippleEffect { get; set; } = true;
+	public bool? Dismissable { get; set; } = false;
+	public bool? Ripple { get; set; } = true;
 	public List<NotyfNotificationOptions> CustomTypes { get; set; } = new();
 }

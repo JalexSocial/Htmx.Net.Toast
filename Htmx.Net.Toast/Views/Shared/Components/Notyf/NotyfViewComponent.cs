@@ -10,14 +10,13 @@ namespace Htmx.Net.Toast.Views.Shared.Components.Notyf;
 public class NotyfViewComponent : ViewComponent
 {
 	private readonly INotyfService _service;
+	private readonly NotyfConfig _options;
 
 	public NotyfViewComponent(INotyfService service, NotyfConfig options)
 	{
 		_service = service;
 		_options = options;
 	}
-
-	public NotyfConfig _options { get; }
 
 	public IViewComponentResult Invoke()
 	{
