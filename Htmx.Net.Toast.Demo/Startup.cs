@@ -31,6 +31,7 @@ public class Startup
 			config.Ripple = true;
 			config.CustomTypes = new List<NotyfNotificationOptions>
 			{
+				// Create a new notification type called "rawr" with some sensible purple defaults
 				new NotyfNotificationOptions
 				{
 					Type = ToastNotificationType.Custom("rawr"),

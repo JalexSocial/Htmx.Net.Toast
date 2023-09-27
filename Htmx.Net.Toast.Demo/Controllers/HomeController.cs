@@ -35,7 +35,7 @@ public class HomeController : Controller
 	{
 		_notyf.Success("Success Notification invoked via htmx");
 		_notyf.Error("Some Error Message 1");
-		_notyf.Information("Information Notification - closes in 4 seconds.", 45000);
+		_notyf.Information("Information Notification - closes in 4 seconds.", 4000);
 		_notyf.Warning("Some Error Message");
 
 		Random rand = new Random(System.Environment.TickCount);
