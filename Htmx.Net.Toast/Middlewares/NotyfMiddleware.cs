@@ -53,12 +53,9 @@ internal class NotyfMiddleware
 				var accessControlExposeHeaders = $"{GetControlExposeHeaders(httpContext.Response.Headers)}";
 				httpContext.Response.Headers.Add(AccessControlExposeHeadersKey, accessControlExposeHeaders);
 
-				httpContext.Response.Headers.Add(HtmxHeaderKeys.ResponseTriggerAfterSettle, new { notyfpublish = messages.Notifications }.ToJson());
-
 				var triggers = new Dictionary<string, object?>();
 
-				//var notificationsJson = new { notyfpublish = messages.Notifications }.ToJson();
-
+				// Code partially written by Khalid Abuhakmeh
 				if (httpContext.Response.Headers.ContainsKey(HtmxHeaderKeys.ResponseTriggerAfterSettle))
 				{
 					var header = httpContext.Response.Headers[HtmxHeaderKeys.ResponseTriggerAfterSettle];
@@ -88,7 +85,7 @@ internal class NotyfMiddleware
 					}
 				}
 
-				triggers.TryAdd("notyfpublish", messages.Notifications);
+				triggers.TryAdd(HtmxHeaderKeys.ResponseTriggerPublishNotificationKey, messages.Notifications);
 
 				var notificationsJson = triggers.ToJson();
 
