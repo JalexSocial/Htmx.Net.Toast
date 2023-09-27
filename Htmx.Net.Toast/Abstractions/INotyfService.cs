@@ -1,6 +1,6 @@
-﻿using Htmx.Net.Toast.Notyf.Models;
+﻿using Htmx.Net.Toast.Enums;
+using Htmx.Net.Toast.Notyf.Models;
 using System.Collections.Generic;
-using Htmx.Net.Toast.Enums;
 
 namespace Htmx.Net.Toast.Abstractions;
 

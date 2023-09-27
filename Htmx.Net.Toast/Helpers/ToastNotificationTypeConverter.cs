@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Htmx.Net.Toast.Enums;
+using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using Htmx.Net.Toast.Enums;
 
 namespace Htmx.Net.Toast.Helpers;
 internal class ToastNotificationTypeConverter : JsonConverter<ToastNotificationType>

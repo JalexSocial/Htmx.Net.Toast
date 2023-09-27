@@ -1,9 +1,9 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using Htmx.Net.Toast.Abstractions;
+﻿using Htmx.Net.Toast.Abstractions;
 using Htmx.Net.Toast.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Htmx.Net.Toast.Services;
 
@@ -57,7 +57,7 @@ public class TempDataService : ITempDataService
 		{
 			IncludeFields = true,
 			PropertyNameCaseInsensitive = true,
-			Converters = { new JsonStringEnumConverter( JsonNamingPolicy.CamelCase) }
+			Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
 		};
 	}
 }

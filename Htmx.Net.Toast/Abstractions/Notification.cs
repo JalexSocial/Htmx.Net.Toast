@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Htmx.Net.Toast.Enums;
+﻿using Htmx.Net.Toast.Enums;
 using Htmx.Net.Toast.Helpers;
+using System.Text.Json.Serialization;
 
 namespace Htmx.Net.Toast.Abstractions;
 

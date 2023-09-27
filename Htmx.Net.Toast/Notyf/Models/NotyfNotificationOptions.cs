@@ -1,7 +1,7 @@
-﻿using System;
-using System.Text.Json.Serialization;
-using Htmx.Net.Toast.Enums;
+﻿using Htmx.Net.Toast.Enums;
 using Htmx.Net.Toast.Helpers;
+using System;
+using System.Text.Json.Serialization;
 
 namespace Htmx.Net.Toast.Notyf.Models;
 
@@ -27,7 +27,7 @@ public class NotyfNotificationOptions
 			else
 				throw new Exception("Icon must be either NotyfIcon, string, or bool");
 		}
-	} 
+	}
 	[JsonPropertyName("background")]
 	public string? BackgroundColor { get; set; }
 	[JsonPropertyName("message")]

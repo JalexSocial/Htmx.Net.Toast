@@ -1,8 +1,8 @@
-﻿using Htmx.Net.Toast.Notyf.Enums;
+﻿using Htmx.Net.Toast.Enums;
+using Htmx.Net.Toast.Notyf.Enums;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
-using Htmx.Net.Toast.Enums;
 
 namespace Htmx.Net.Toast.Notyf.Models;
 

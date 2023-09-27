@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Htmx.Net.Toast.Enums;
 using Htmx.Net.Toast.Extensions;
 using Htmx.Net.Toast.Notyf.Enums;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 
 namespace Htmx.Net.Toast.Demo;
 
@@ -25,8 +25,8 @@ public class Startup
 	{
 		services.AddNotyf(config =>
 		{
-			config.Duration = 2000; 
-			config.Dismissable = true; 
+			config.Duration = 2000;
+			config.Dismissable = true;
 			config.Position = NotyfPosition.BottomRight;
 			config.Ripple = true;
 			config.CustomTypes = new List<NotyfNotificationOptions>

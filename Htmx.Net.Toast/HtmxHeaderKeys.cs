@@ -6,5 +6,5 @@ internal class HtmxHeaderKeys
 	public static readonly string Request = "HX-Request";
 
 	// Key for specific trigger
-	public static readonly string ResponseTriggerPublishNotificationKey = "notfypublish";
+	public static readonly string ResponseTriggerPublishNotificationKey = "notyfpublish";
 }

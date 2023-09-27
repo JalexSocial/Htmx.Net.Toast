@@ -5,7 +5,7 @@ namespace Htmx.Net.Toast.Notyf.Models;
 
 public class NotyfNotification : Notification
 {
-	public NotyfNotification() : base (ToastNotificationType.Success, string.Empty, 2500)
+	public NotyfNotification() : base(ToastNotificationType.Success, string.Empty, 2500)
 	{
 	}
 

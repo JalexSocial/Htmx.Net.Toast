@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-
-namespace Htmx.Net.Toast.Enums;
+﻿namespace Htmx.Net.Toast.Enums;
 
 public class ToastNotificationType
 {

@@ -4,9 +4,21 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <button hX-post="/home/notifications" hx-swap="innerHTML" hx-target="#notification-target">
-        Click Me to Trigger Notification via htmx
+    <button hx-post="/home/toasterror" hx-swap="innerHTML" hx-target="#notification-target">
+        Trigger htmx error toast
     </button>
-    
+    <button hx-post="/home/toastsuccess" hx-swap="innerHTML" hx-target="#notification-target">
+        Trigger htmx success toast
+    </button>
+    <button hx-post="/home/toastinformation" hx-swap="innerHTML" hx-target="#notification-target">
+        Trigger htmx info toast
+    </button>
+    <button hx-post="/home/toastwarning" hx-swap="innerHTML" hx-target="#notification-target">
+        Trigger htmx warning toast
+    </button>
+    <button hx-post="/home/toastcustom" hx-swap="innerHTML" hx-target="#notification-target">
+        Trigger htmx custom toast
+    </button>
+
     <div id="notification-target"></div>
 </div>
