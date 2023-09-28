@@ -26,9 +26,9 @@ public class HomeController : Controller
 		_notyf.Error("Some Error Message");
 		_notyf.Warning("Some Error Message");
 		_notyf.Information("Information Notification - closes in 4 seconds.", 4000);
-		_notyf.Custom(ToastNotificationType.Custom("rawr"), "Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5000, new NotyfIcon { Color = "indigo", ClassName = "fa fa-gear" });
+		//_notyf.Custom(ToastNotificationType.Custom("rawr"), "Custom Notification <br><b><i>closes in 5 seconds.</i></b></p>", 5000, new NotyfIcon { Color = "indigo", ClassName = "fa fa-gear" });
 		_notyf.Custom(ToastNotificationType.Custom("rawr"), "Custom Notification - closes in 5 seconds.", 5000);
-		_notyf.Custom(ToastNotificationType.Custom("rawr"), "Custom Notification - closes in 10 seconds.", 10000);
+		//_notyf.Custom(ToastNotificationType.Custom("rawr"), "Custom Notification - closes in 10 seconds.", 10000);
 		return View();
 	}
 
