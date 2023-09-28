@@ -1,6 +1,6 @@
 ﻿# Htmx.Net.Toast - Notifications For ASP.NET HTMX Applications
 
-ToastNotification is a Minimal & Elegant Toast Notification Package for ASP.NET Core Web Applications that can be invoked via C#. Compatible with ASP.NET 7+ and HTMX.
+ToastNotification is a Minimal & Elegant Toast Notification Package for ASP.NET Core Web Applications that can be invoked via C#. Compatible with ASP.NET 7+ and HTMX. Depends only on Htmx and Notyf javascript libraries. No jQuery dependency (although the example includes jQuery, it is not needed to use this).  
 
 <img src="https://jalexsocial.github.io/Htmx.Net.Toast/htmx.net.toast.gif">
 
