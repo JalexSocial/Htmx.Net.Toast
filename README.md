@@ -1,6 +1,6 @@
 ﻿# Htmx.Net.Toast - Notifications For ASP.NET HTMX Applications
 
-ToastNotification is a Minimal & Elegant Toast Notification Package for ASP.NET Core Web Applications that can be invoked via C#. Compatible with ASP.NET Core 3.1 and .NET 5.
+ToastNotification is a Minimal & Elegant Toast Notification Package for ASP.NET Core Web Applications that can be invoked via C#. Compatible with ASP.NET 7+ and HTMX.
 
 ## Features
 
@@ -29,8 +29,7 @@ Or
 
 Get it directly from NuGet - https://www.nuget.org/packages/Htmx.Net.Toast/
 
-
-As mentioned earlier, this project / package is an ASP.NET Core Abstraction of popular Javascript libraries that are responsible for toast notifications. Currently, 2 popuplar libraries are abstracted , Notyf and ToastifyJs. You can choose to use either of them based on their look and feel. Follow the guide below for each of the toast notification library. Cheers!
+Follow the guide below for each of the toast notification library. Cheers!
 
 # Notyf
 
@@ -62,7 +61,7 @@ builder.Services.AddNotyf( config => {
 ```
 
 > Available Positions are TopRight,BottomRight,BottomLeft,TopLeft,TopCenter,BottomCenter.
-Set the isDismissible bool to false, to remove the close icon from your toasts! Pretty handy.
+Set the Dismissible bool to false, to remove the close icon from your toasts! Pretty handy.
 
 ### Enable HTMX middleware
 
@@ -76,21 +75,21 @@ app.UseNotyf();
 
 Next, open up your _Layout.cshml file and add in the following to the head section. Note that you can use a bundler with this CSS if you like. It is not included by the Htmx.Net.Toast component out of the box.
 
-```
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 ```
 
 In the foot of your page add a reference to the notyf.min.js script and a call to invoke the Notyf component.  Note that while the example requires jQuery, Htmx.Net.Toast has no jQuery dependency:
 
-```
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     
-	@await Component.InvokeAsync("Notyf")
+@await Component.InvokeAsync("Notyf")
 ```
 
 Let's add the Constructor Injection. Add the following in your controllers / razor classes to invoke the toast notifications as required.
 
-```
+```csharp
 public INotyfService _notyf { get; }
 public HomeController( INotyfService notifyService)
 {
@@ -146,10 +145,6 @@ A Demo Implementation using ASP.NET 7 MVC can be found here - https://github.com
 
 The Javascript library used in this project is https://github.com/caroso1222/notyf
 
-# Support
-Has this Project helped you learn something New? or Helped you at work? Do Consider Supporting.
-
-<a href="https://www.buymeacoffee.com/codewithmukesh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" width="200"  ></a>
 
 # About the Author
 Originally based on the work of Mukesh Murugan at [codewithmukesh.com](https://www.codewithmukesh.com)
