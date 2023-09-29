@@ -10,9 +10,9 @@
     <Description>Elegant Toast Notifications for ASP.NET Core Applications that utilize HTMX. Compatible with .NET 7+.</Description>
     <Copyright>2023</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.1</AssemblyVersion>
+    <FileVersion>1.1.1</FileVersion>
+    <Version>1.1.1</Version>
     <PackageIcon>logo-transparent.png</PackageIcon>
     <PackageProjectUrl>https://github.com/JalexSocial/Htmx.Net.Toast</PackageProjectUrl>
     <RepositoryUrl>https://github.com/JalexSocial/Htmx.Net.Toast</RepositoryUrl>
